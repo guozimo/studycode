@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<div id="content">
+    <div>
+        <label id="label_username"></label>
+        <input type="text" id="username"></input>
+    </div>
+    <div>
+        <label id="label_password"></label>
+        <input type="password" id="password"></input>
+    </div>
+    <input type="button" id="button_login"/>
+</div>
+
+
+
+
+
+
+
+
+<script type="text/javascript" src="jquery-1.5.2.min.js"></script>
+<!--<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>-->
+<script type="text/javascript" src="jquery.i18n.properties-1.0.9.js"></script>
+<script type="text/javascript">
+    jQuery(document).ready(function() {
+        //loadBundles('pt_BR');
+        loadBundles('pt');
+    });
+    //			这是默认的那个语言  下面是函数
+    function loadBundles(lang) {
+        jQuery.i18n.properties({
+            name: 'Messages',
+            path: 'bundle/',
+            mode: 'both',
+            language: lang,
+            callback: function () {
+                updateExamples();
+            }
+        });
+    }
+
+    function updateExamples() {
+
+//			console.log(jQuery.i18n.prop(ex1)); 这就是我需要翻译的文字
+        // Accessing values through a JS variable
+        var ex = '请填写跳转页码';
+$("#button_login").click(function(){
+    alert(jQuery.i18n.prop(ex));
+})
+//        if (languageClass =="pt") {
+//            alert(jQuery.i18n.prop(ex));
+//            console.log(jQuery.i18n.prop(ex));
+//        }else if(languageClass=="pt_BR"){
+//            alert(jQuery.i18n.prop(ex));
+//        }
+
+    }
+
+
+
+</script>
+</body>
+</html>

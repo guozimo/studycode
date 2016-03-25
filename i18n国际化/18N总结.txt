@@ -1,0 +1,14 @@
+function updateExamples() {
+
+//			console.log(jQuery.i18n.prop(ex1)); 这就是我需要翻译的文字
+			// Accessing values through a JS variable
+			var ex = '请填写跳转页码';
+
+			if (languageClass =="pt_BR") {
+				alert(jQuery.i18n.prop(ex));
+				console.log(jQuery.i18n.prop(ex));
+			}else if(languageClass=="pt_BR"){
+				alert(jQuery.i18n.prop(ex));
+			}
+
+		}

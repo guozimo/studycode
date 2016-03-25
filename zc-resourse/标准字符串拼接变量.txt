@@ -1,0 +1,191 @@
+$(".fillspan1").click(function(){
+			$(".tablelineodd").parent("tBody").children(":gt("+(str1-1)+")").hide();
+
+			//console.log(str1-1);
+		})
+
+		$(".fillspan2").click(function(){
+			$(".tablelineodd").parent("tBody").children(":gt("+(str2-1)+")").hide();
+			$(".tablelineodd").parent("tBody").children(":lt("+str2+")").show();
+
+		})
+		$(".fillspan3").click(function(){
+			$(".tablelineodd").parent("tBody").children(":lt("+(str3+1)+")").show();
+		})
+
+
+
+
+
+
+
+<LeafNode checkPurview="true" BizPersistenceName="List_wfproInst">
+					<LeafNodeName>List_wfproInst</LeafNodeName>
+					<FatherName>gzlgl</FatherName>
+					<Image>image/newmain/leafnode.gif</Image>
+					<ImageMargin>1</ImageMargin>
+					<OpenMargin>1</OpenMargin>
+					<LeafText>工作日志设置</LeafText>
+					<Target>right</Target>
+					<SummitFileName>./txiservlet</SummitFileName>
+					<Command>List_wfproInst</Command>
+					<Frame>WorkflowMonitor</Frame>
+					<ConnectionPoolName/>
+				</LeafNode>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Command 命令里面的内容是根据客户要求填入的
+<LeafNode checkPurview="true" BizPersistenceName="List_wfworkday">
+					<LeafNodeName>List_wfworkday</LeafNodeName>
+					<FatherName>gzlgl</FatherName>
+					<Image>image/newmain/leafnode.gif</Image>
+					<ImageMargin>1</ImageMargin>
+					<OpenMargin>1</OpenMargin>
+					<LeafText>工作日设置</LeafText>
+					<Target>right</Target>
+					<SummitFileName textreplace="$XiGetSystemParam('WFSetWorkDayURL')/mfadmin/calendaroperation.do?instcmd=GetCalendars"></SummitFileName>
+					<!--SummitFileName>http://localhost:7001/mfadmin/calendaroperation.do?instcmd=GetCalendars</SummitFileName-->
+					<Command></Command>
+					<Frame></Frame>
+					<ConnectionPoolName/>
+				</LeafNode>
+
+
+
+
+
+
+   增加参数设置：
+在系统中进行修改 增加参数：
+
+
+
+
+<IsGo required="false" default="">"?",</IsGo>
+				<Place required="false" default="">"?",</Place>
+				<TextFont required="false" default="">"?",</TextFont>
+				<TextSize required="false" default="">"?",</TextSize>
+				<TextColor required="false" default="">"?",</TextColor>
+				<Command requird="false" default="">"?"</Command>
+				<SetInitValue required="false" default="">,"?"</SetInitValue>
+				<IsPage required="false" default="">,"?"</IsPage>
+				<IsDisp required="false" default="">,"?"</IsDisp>
+				<lines required="false" default="">,"?"</lines>
+				<languageClass required="false" default="">,"?"</languageClass>
+
+
+
+
+
+
+在客户端设置参数 同步进行
+<PagesRecords>
+								<PagesRecordsAttribute>
+									<Place>top-left</Place>
+									<TextFont/>
+									<TextSize/>
+									<TextColor/>
+									<Command>Open_MainListtable</Command>
+									<languageClass>1</languageClass>
+								</PagesRecordsAttribute>
+							</PagesRecords>
+
+
+
+
+
+
+
+
+截图注释：
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   <label data-en="<%=$i18n["Please fill out the jump page!"]["en"]%>" data-zh="$i18n["Please fill out the jump page!"]["zh"]%>" class="i18n">$i18n["Please fill out the jump page!"]["en"]%></label>
+
+   <select id="changeLang">
+    <option value="en">English</option>
+       <option value="zh">中文</option>
+       </select>
+
+     // 在JS的帮助下实现翻译
+
+      <script>
+      $('#changeLang').change(function() {
+      var $this = $(this);
+      var lang  = $this.val();
+      $('.i18n').each(function() {
+       $(this).text($(this).data(lang));
+        });
+        });
+        </script>
+
+
+
+
+
+
+
+
+
+		$('#choose').change(function(){
+			if($(this).get(0).selectedIndex==0){
+				$(".tablelineodd").parent("tbody").children(":gt(0)").hide();
+			}else if($(this).get(0).selectedIndex==1){
+				$(".tablelineodd").parent("tbody").children(":gt(2)").hide();
+				$(".tablelineodd").parent("tbody").children(":lt(3)").show();
+			}else{
+				$(".tablelineodd").parent("tbody").children(":lt(6)").show();
+			}
+			}
+
+

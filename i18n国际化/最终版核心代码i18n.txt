@@ -1,0 +1,45 @@
+ if(languageClass=="pt_BR"){
+	 jQuery(document).ready(function() {
+	 	//loadBundles('pt_BR');
+	 	loadBundles('pt_BR');
+	 });
+ }else if(languageClass=="pt"){
+	 jQuery(document).ready(function() {
+		 loadBundles('pt');
+	 });
+ }
+		//jQuery(document).ready(function() {
+		//	//loadBundles('pt_BR');
+		//	loadBundles('pt_BR');
+		//});
+//			这是默认的那个语言  下面是函数
+			function loadBundles(lang) {
+				jQuery.i18n.properties({
+					name: 'Messages',
+					path: 'bundle/',
+					mode: 'both',
+					language: lang,
+					callback: function () {
+						updateExamples();
+					}
+				});
+			}
+
+		function updateExamples() {
+
+//			console.log(jQuery.i18n.prop(ex1)); 这就是我需要翻译的文字
+			// Accessing values through a JS variable
+			var ex = '请填写跳转页码';
+			alert(jQuery.i18n.prop(ex));
+			//if (languageClass =="pt_BR") {
+			//	alert(jQuery.i18n.prop(ex));
+			//	console.log(jQuery.i18n.prop(ex));
+			//}else if(languageClass=="pt_BR"){
+			//	alert(jQuery.i18n.prop(ex));
+			//}
+
+
+
+		}
+
+	}
