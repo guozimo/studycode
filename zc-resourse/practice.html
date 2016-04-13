@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+
+
+
+    <style>
+        .red{
+            background: red;
+        }
+        div{ height:100px; margin:100px; background:red;}
+        #div2{ padding:50px;}
+    </style>
+
+</head>
+<body>
+<div id="div2" style="width:800px">div2</div>
+
+
+
+
+<!--//footer end-->
+
+<script>
+    /*var oDiv=document.getElementsByClassName("div1")[0];
+     div2.style.width="1000px";
+     oDiv.style.width="200px";*/
+
+    function addBorder(str){
+        var str2=eval(str);
+        //var ele=document.getElementsByClassName(str)[0];
+        //var oDiv=document.getElementsByClassName(str)[0];
+        if(str=="div2"){
+            str2.style.width="200px";
+        }
+    }
+    addBorder("div2")
+
+//style是可以修改css样式  只可以获取行内样式
+//    可以修改任意的样式  因为这些属性在style上本身是有的
+</script>
+</body>
+</html>
