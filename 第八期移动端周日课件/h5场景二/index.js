@@ -68,6 +68,7 @@ var fnPhone = {
             fnMessage();
 
         },1000);
+    //    时间到了自动转到这个上面
 
     }
 
@@ -102,6 +103,7 @@ function fnMessage(){
            main.removeChild(message);
            fnCube();
        }else{
+           //让每一个li进行动画翻页 而不是手动波动
            h+=oLis[n].offsetHeight-30; /*把每个li的高度累加赋值给h*/
            oLis[n].style.opacity = 1;
            oLis[n].style.webkitTransform = "translate(0,0)";
@@ -111,6 +113,7 @@ function fnMessage(){
            n++;
        }
     },1000)
+    //用的定时器开启的第三屏内容
 
 }
 

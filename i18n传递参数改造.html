@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    if(Index != null) {
+        document.getElementById("chosen").selectedIndex =Index;
+        var ex1 = '请填写跳转页码';
+        Index==1?loadBundles('EN',ex1) :loadBundles('CH',ex1);
+    }else{
+        navlang();
+    }
+
+    }else{
+        ex1= '页码只能是数字';
+        Index==1?loadBundles('EN',ex1) :loadBundles('CH',ex1);
+    }
+
+
+
+    function loadBundles(lang,ex1) {
+        //console.log(ex1);
+        jQuery.i18n.properties({
+            ex:ex1,
+            name: 'Messages',
+            path: 'lang/',
+            mode: 'both',
+            language: lang,
+            callback: function (ex) {
+                //console.log(ex1);
+                updateExamples(ex1);
+            }
+        });
+    }
+
+    function updateExamples(ex1) {
+        alert(jQuery.i18n.prop(ex1));
+    }
+
+</script>
+
+</body>
+</html>

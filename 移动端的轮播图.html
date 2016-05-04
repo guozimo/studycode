@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+            font-family: cursive;
+            list-style: none;
+        }
+        #outer{
+            width: 100%;
+            height: 300px;
+        }
+        #inner{
+            width: 400%;
+            height: 300px;
+            position: absolute;
+        }
+        #inner li{
+            width: 25%;
+            height: 300px;
+            float: left;
+            text-align: center;
+            line-height: 300px;
+            font-size: 50px;
+            position: relative;
+        }
+        #inner li:nth-child(1){
+            background: lightblue;
+        }
+        #inner li:nth-child(2){
+            background: lawngreen;
+        }
+        #inner li:nth-child(3){
+            background: peru;
+        }
+        #inner li:nth-child(4){
+            background: fuchsia;
+        }
+        #btn{
+            width: 400px;
+            height: 50px;
+            position: absolute;
+            right: 20px;
+            top: 220px;
+        }
+        #btn span{
+            width: 50px;
+            height: 50px;
+            display: inline-block;
+            background: #B1D410;
+            text-align: center;
+            line-height: 50px;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+<!--移动端事件
+主要分为单指事件和多指事件(触摸事件)
+单指效果:点一下(tap)，长按(longTap)，连续点击两次(doubleTap)
+单指事件(简单的触摸事件):touchstart(按下之后触发) touchmove(手指在屏幕上移动的时候触发) touchend(手指离开屏幕时触发结束) touchcancel(意外情况出现触发事件比如突然出现弹框,突然死机,手机关机)
+多指效果(复杂的触摸事件):缩放和旋转 gesturestart(两个手指按下触发) gesturechange(两个手指移动) gestureend
+
+
+
+click事件在移动端会有300毫秒的问题，执行顺序是touchstart-touchmove-touchend-click
+
+用fastclick这个类库来结局click延迟和点透的问题
+
+-->
+<div id="outer">
+    <ul id="inner">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+    </ul>
+</div>
+<div id="btn">
+    <span>1</span>
+    <span>2</span>
+    <span>3</span>
+    <span>4</span>
+</div>
+</body>
+</html>
+<script type="text/javascript">
+    var oLis=document.querySelectorAll("li");
+    var oInner = document.querySelector("#inner");
+    [].forEach.call(oLis,function(){
+        var li=arguments[0];
+        li.index=arguments[1];
+        li.addEventListener("touchstart",start,false);
+        li.addEventListener("touchmove",move,false);
+        li.addEventListener("touchend",end,false);
+    })
+    function start(e){
+        this.startX= e.changedTouches[0].pageX;
+      /*  console.log(e.touches);
+        console.log(e.targetTouches);
+        console.log(e.changedTouches);*/
+        //注意点:第一:所有的触摸点都能在touches里面获得到；第二:targetTouches根据需求两用；第三点:touchend时间点，通过touches和targetTouches没法获得触摸点集合，只有changeTouches
+    }
+    function move(e){
+        e.preventDefault();
+        var moveX= e.changedTouches[0].pageX;
+        this.pos=moveX-this.startX;
+        /*console.log("差"+pos);*/
+        //1.先求出当前张的位置
+        var movePos=this.offsetWidth*this.index;
+        //-(当前的位置+滑动的距离)
+        var mPos=-movePos+this.pos;
+        oInner.style.webkitTransform="translate("+mPos+"px)"
+    }
+    function end(e){
+        //往右划到下一张，往左划回到上一张
+        var index=this.index;
+        var len=oLis.length;
+        if(this.pos>0){//往右划
+            this.presIndex=index==0?0:index-1;
+        }else if(this.pos<0){
+            this.presIndex=index==len-1?len-1:index+1;
+        }
+        var pos=this.presIndex*(-this.offsetWidth);
+        oInner.style.webkitTransform="translate("+pos+"px)";
+        oInner.style.webkitTransition="0.7s";
+    }
+</script>

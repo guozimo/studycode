@@ -1,0 +1,388 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+#main {
+    width: 640px;
+    height: 1008px;
+    position: absolute;
+    left: 50%;
+    top: 0;
+    margin-left: -320px;
+    transform-origin: top;
+    -webkit-transform-origin: top; /*改变缩放的基准点*/
+}
+
+#list li {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+#list li:nth-child(1) {
+    background-image: url(images/1.jpg);
+}
+
+#list li:nth-child(2) {
+    background-image: url(images/2.jpg);
+}
+
+#list li:nth-child(3) {
+    background-image: url(images/3.jpg);
+}
+
+#list li:nth-child(4) {
+    background-image: url(images/4.jpg);
+}
+
+#list li:nth-child(5) {
+    background-image: url(images/5.jpg);
+}
+
+#list li:nth-child(6) {
+    background-image: url(images/6.jpg);
+}
+
+.zIndex {
+    z-index: 5;
+}
+
+.a1 img{
+    width: 100%;
+    height: 90%;
+    animation:imgScale 2s ease-in .3s 2;
+    -webkit-animation: imgScale 2s ease-in .3s 2;
+}
+@-webkit-keyframes imgScale{
+    0%{
+        transform: scale(0.75);
+        opacity: 1;
+    }
+    10%{
+        transform: scale(0.80);
+        opacity: 1;
+    }
+    20%{
+        transform: scale(0.85);
+        opacity: 1;
+    }
+    30%{
+        transform: scale(0.90);
+        opacity: 1;
+    }
+    40%{
+        transform: scale(0.95);
+        opacity: 1;
+    }
+    50%{
+        transform: scale(1);
+        opacity: 1;
+    }
+    60%{
+        transform: scale(0.95);
+        opacity: 1;
+    }
+    70%{
+        transform: scale(0.90);
+        opacity: 1;
+    }
+    80% {
+        transform: scale(0.85);
+        opacity: 1;
+    }
+    90% {
+        transform: scale(0.80);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(0.75);
+        opacity: 1;
+    }
+}
+.music{
+    display: none;
+    position: absolute;
+    top: 23px;
+    right: 21px;
+    width: 40px;
+    height: 40px;
+    background-image: url("images/music.svg") ;
+    background-size: 100% 100%;
+}
+
+.music.move{
+    -webkit-animation: audioMove 1s linear 0s infinite both;
+    animation: audioMove 1s linear 0s infinite both;
+}
+
+@-webkit-keyframes audioMove {
+    0% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes audioMove {
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+
+.a2 p {
+    width: 154px;
+    height: 130px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -45px;
+    margin-top: -45px;
+    font-size: 30px;
+    font-weight: bold;
+    color: #fff;
+    text-align: center;
+}
+#a2 p {
+    transform: rotate(720deg);
+    -webkit-transform: rotate(720deg);
+    transition: 1s;
+    -webkit-transition: 1s;
+}
+.a2 p:nth-child(1) {
+    background: url(images/11.png) no-repeat;
+    width: 60%;
+    height: 60%;
+}
+
+#a2 p:nth-child(1) {
+    left: 42%;
+    top: 15%;
+}
+
+#a2 p:nth-child(2) {
+    left: 20%;
+    top: 40%;
+}
+
+#a2 p:nth-child(3) {
+    left: 70%;
+    top: 40%;
+}
+
+#a2 p:nth-child(4) {
+    left: 20%;
+    top: 60%;
+}
+
+#a2 p:nth-child(5) {
+    left: 70%;
+    top: 60%;
+}
+
+#a2 p:nth-child(6) {
+    left: 43%;
+    top: 77%;
+}
+
+.a3 {
+    position: absolute;
+    font-family: fantasy;
+    color: #fff;
+    font-size: 40px;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+.a3 p{
+    margin: 100px;
+}
+.a3 p:nth-child(even) {
+    transform: translate(500px, 0);
+    -webkit-transform: translate(500px, 0);
+}
+
+.a3 p:nth-child(odd) {
+    transform: translate(-500px, 0);
+    -webkit-transform: translate(-500px, 0);
+}
+
+#a3 p {
+    transform: translate(0, 0);
+    -webkit-transform: translate(0, 0);
+    transition: 1s;
+    -webkit-transition: 1s;
+    /*-webkit-animation:rotate 1s ease-in-out ;*/
+}
+
+#a3 {
+    transform: rotateY(720deg);
+    -webkit-transform: rotateY(720deg);
+    transition: 0.5s;
+    -webkit-transition: 0.5s;
+}
+
+.a4 p {
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-radius: 5px;
+    box-shadow: 1px 1px 10px #fff;
+    word-wrap: break-word;
+    overflow: hidden;
+    color: #fff;
+    border: 1px solid #fff;
+    text-align: center;
+    /*padding-top: 50px;*/
+}
+
+.a4 p:nth-child(1) {
+    left: 10%;
+    top: 5%;
+}
+
+.a4 p:nth-child(2) {
+    left: 57%;
+    top: 19%;
+}
+
+.a4 p:nth-child(3) {
+    left: 10%;
+    top: 32%;
+}
+.a4 p:nth-child(4) {
+    left:57%;
+    top:48%;
+}
+.a4 p:nth-child(5) {
+    left: 10%;
+    top: 63%;
+}
+.a4 p:nth-child(6) {
+    left: 57%;
+    top: 79%;
+}
+
+#a4 p{
+    width: 200px;
+    height: 100px;
+    line-height: 100px;
+    transition: 3s;
+    -webkit-transition: 1s;
+    font-size: 30px;
+}
+/*上滑效果*/
+.tip {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    margin-left: -10px;
+    width: 0;
+    height: 0;
+    border: 10px solid #FBA60A;
+    border-color: transparent transparent #FBA60A transparent;
+    -webkit-animation: tipMove 1.5s ease-in-out 0s infinite both;
+    animation: tipMove 1.5s ease-in-out 0s infinite both;
+}
+
+@-webkit-keyframes tipMove {
+    0%, 100% {
+        opacity: 1;
+        bottom: 10px;
+    }
+    50% {
+        opacity: 0;
+        bottom: 20px;
+    }
+}
+
+@keyframes tipMove {
+    0%, 100% {
+        opacity: 1;
+        bottom: 10px;
+    }
+    50% {
+        opacity: 0;
+        bottom: 20px;
+    }
+}
+.a6{
+    width: 320px;
+    height: 65px;
+    line-height: 65px;
+    color: #fff;
+    font-size: 45px;
+    font-weight: 300;
+    padding: 10px;
+    border-bottom: 3px solid #fff;
+    text-align: center;
+    margin: 200px auto;
+}
+.a5{
+    width: 200px;
+    height: 100px;
+    line-height: 100px;
+    margin: 100px auto;
+}
+.a5 img{
+    width: 150px;
+    height: 150px;
+    margin-left: 30px;
+    position: relative;
+}
+.a5 #a5-1{
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    position: absolute;
+    top: 110px;
+    left: 235px;
+}
+.describe p:nth-child(even) {
+    transform: translate(500px, 0);
+    -webkit-transform: translate(500px, 0);
+}
+
+.describe p:nth-child(odd) {
+    transform: translate(-500px, 0);
+    -webkit-transform: translate(-500px, 0);
+}
+
+#describe p {
+    transform: translate(0, 0);
+    -webkit-transform: translate(0, 0);
+    transition: 1s;
+    -webkit-transition: 1s;
+    /*-webkit-animation:rotate 1s ease-in-out ;*/
+}
+
+#a3 {
+    transform: rotateY(720deg);
+    -webkit-transform: rotateY(720deg);
+    transition: 0.5s;
+    -webkit-transition: 0.5s;
+}
+.a7{
+    width: 300px;
+    height: 300px;
+    border: 1px solid #000000;
+    margin-left: 170px;
+    margin-top: -100px;
+    border-radius: 10px;
+}
+.a7 img{
+    border-radius: 10px;
+    width: 300px;
+    height: 300px;
+}

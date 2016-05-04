@@ -1158,15 +1158,12 @@ function SubmitInputPage(CMD,lines,languageClass){
 					loadBundles('pt');
 				});
 			}
-			//jQuery(document).ready(function() {
-			// //loadBundles('pt_BR');
-			// loadBundles('pt_BR');
-			//});
+
 //       这是默认的那个语言  下面是函数
 			function loadBundles(lang) {
 				jQuery.i18n.properties({
 					name: 'Messages',
-					path: 'bundle/',
+					path: 'lang/',
 					mode: 'both',
 					language: lang,
 					callback: function () {
@@ -1177,29 +1174,14 @@ function SubmitInputPage(CMD,lines,languageClass){
 
 			function updateExamples() {
 
-//       console.log(jQuery.i18n.prop(ex1)); 这就是我需要翻译的文字
-				// Accessing values through a JS variable
 				var ex = '请填写跳转页码';
 				alert(jQuery.i18n.prop(ex));
-				//if (languageClass =="pt_BR") {
-				// alert(jQuery.i18n.prop(ex));
-				// console.log(jQuery.i18n.prop(ex));
-				//}else if(languageClass=="pt_BR"){
-				// alert(jQuery.i18n.prop(ex));
-				//}
+
 			}
 		}
 	}
-	//$("#currentSize1").attr("name","lines").siblings().removeAttr("name");
-	//console.log(_Sizeopt1.value,_Sizeopt2.value,_Sizeopt3.value);
-	//var _currentSize1 = eval(document.form.lines).value;
-	//var _currentSize2 = eval(document.form.lines).value;
-	//var _currentSize3 = eval(document.form.lines).value;
 
 	if(reg.test(_Sizeopt1.value,_Sizeopt2.value,_Sizeopt3.value)){
-		//_currentSize1= parseInt(_Sizeopt1.value);
-		//_currentSize2= parseInt(_Sizeopt2.value);
-		//_currentSize3= parseInt(_Sizeopt3.value);
 
 		pageFlag_CMD(CMD,'4');
 
