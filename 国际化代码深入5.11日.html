@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    //代码国际化批量导入数据核心代码
+    MainListColText[number]=text;
+    //ex1[3]=MainListColText[3];
+    //ex1[4]=MainListColText[4];
+    //ex1[5]=MainListColText[5];
+    //ex1[6]=MainListColText[6];
+    //ex1[7]=MainListColText[7];
+    //for(var h=3;h<14;h++){
+    //}
+    ex1[number]=MainListColText[number];
+    var zdex= getCookie("chosen");
+    zdex==1?loadBundles('en',ex1) :loadBundles('zh',ex1);
+    var reg2 = /^(\[)+|(\])+$/g;
+    //var inter3=jQuery.i18n.prop(ex1[3]).replace(reg2,"");
+    //var inter4=jQuery.i18n.prop(ex1[4]).replace(reg2,"");
+    //var inter5=jQuery.i18n.prop(ex1[5]).replace(reg2,"");
+    //var inter6=jQuery.i18n.prop(ex1[6]).replace(reg2,"");
+    //var inter7=jQuery.i18n.prop(ex1[7]).replace(reg2,"");
+    eval("var"+" "+"inter"+number+""+"="+"jQuery.i18n.prop(ex1["+number+"]).replace(reg2,'')");
+    //MainListColText[3]=inter3;
+    //MainListColText[4]=inter4;
+    //MainListColText[5]=inter5;
+    //MainListColText[6]=inter6;
+    //MainListColText[7]=inter7;
+    MainListColText[number]=eval(("inter"+number));
+
+</script>
+
+</body>
+</html>
